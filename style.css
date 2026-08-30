@@ -1,3 +1,92 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+        url('fonts/Roboto/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, system-ui, sans-serif;
+    color: white;
+}
+
+body {
+    background-color: rgb(16, 21, 39);
+    display: flex;
+    flex-direction: column;
+}
+
+button:hover {
+    opacity: 80%;
+}
+
+button:active {
+    opacity: 50%;
+}
+
+.newBook-btn {
+    margin: 40px auto;
     background-color: teal;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.remove-btn {
+    background-color: rgba(255, 0, 0, 0.4);
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 14px;
+}
+
+.status-btn.read {
+    background-color: green;
+}
+
+.status-btn.not-read {
+    background-color: red;
+}
+
+.status-btn {
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+thead th {
+    border-bottom: 1px solid white;
+    text-align: start;
+    padding: 10px;
+}
+
+thead th:last-child {
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table caption {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+tbody th,
+tbody td {
+    padding: 10px;
+}
+
+form {
+    color: black;
 }
