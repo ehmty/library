@@ -26,10 +26,13 @@ function showLibrary(myLibrary) {
         
         for (let prop in book) {
             const tableData = document.createElement("td");
-            if (prop === "id") continue;
+            if (prop === "id" || prop === "toggleStatus") continue;
 
             if (prop === "status") {
-                tableData.textContent = book.status ? "read": "not read";
+                const statusBtn = document.createElement("button");
+                statusBtn.classList.add("status-btn")
+                statusBtn.textContent = book.status ? "read" : "not read";
+                tableData.appendChild(statusBtn);
             } else {
                 tableData.textContent = book[prop];
             }
@@ -37,6 +40,7 @@ function showLibrary(myLibrary) {
         }
 
         const removeBtn = document.createElement("button");
+        removeBtn.classList.add("remove-btn")
         removeBtn.textContent = "x"
 
         tableRow.setAttribute("data-id", book.id);
@@ -53,8 +57,20 @@ const form = document.querySelector("form");
 const tableBody = document.querySelector("tbody");
 
 tableBody.addEventListener("click", e => {
-    const id = e.target.parentElement.getAttribute("data-id");
-    myLibrary = myLibrary.filter(book => book.id !== id);
+    const id = e.target.closest("tr").getAttribute("data-id");
+
+    if (e.target.classList.contains("remove-btn")) {
+        myLibrary = myLibrary.filter(book => book.id !== id);
+    }
+    
+    if (e.target.classList.contains("status-btn")) {
+        for (let book of myLibrary) {
+            if (book.id === id) {
+                book.toggleStatus();
+            }
+        }
+    }
+
     showLibrary(myLibrary);
 })
 
@@ -72,3 +88,7 @@ form.addEventListener("submit", e => {
 
     form.reset();
 })
+
+Book.prototype.toggleStatus = function() {
+    this.status = !this.status;
+}
