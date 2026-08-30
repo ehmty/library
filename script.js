@@ -6,7 +6,7 @@ function Book(title, author, pages, status) {
     this.id = crypto.randomUUID();
 }
 
-const myLibrary = [];
+let myLibrary = [];
 
 function addBookToLibrary(title, author, pages, status) {
     const book = new Book(title, author, pages, status);
@@ -35,18 +35,31 @@ function showLibrary(myLibrary) {
             }
             tableRow.appendChild(tableData);
         }
-        
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "x"
+
         tableRow.setAttribute("data-id", book.id);
+
+        tableRow.appendChild(removeBtn);
         tableBody.appendChild(tableRow);
     }
+
 }
 
 showLibrary(myLibrary);
 
 const form = document.querySelector("form");
-const dialog = document.querySelector("dialog");
+const tableBody = document.querySelector("tbody");
 
-form.addEventListener("submit", (e) => {
+tableBody.addEventListener("click", e => {
+    const id = e.target.parentElement.getAttribute("data-id");
+    myLibrary = myLibrary.filter(book => book.id !== id);
+    showLibrary(myLibrary);
+})
+
+
+form.addEventListener("submit", e => {
     e.preventDefault();
 
     const title = document.querySelector("#title").value;
