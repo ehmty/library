@@ -31,6 +31,7 @@ function showLibrary(myLibrary) {
             if (prop === "status") {
                 const statusBtn = document.createElement("button");
                 statusBtn.classList.add("status-btn")
+                statusBtn.classList.add(book.status ? "read" : "not-read");
                 statusBtn.textContent = book.status ? "read" : "not read";
                 tableData.appendChild(statusBtn);
             } else {
