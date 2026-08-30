@@ -26,6 +26,8 @@ function showLibrary(myLibrary) {
         
         for (let prop in book) {
             const tableData = document.createElement("td");
+            if (prop === "id") continue;
+
             if (prop === "status") {
                 tableData.textContent = book.status ? "read": "not read";
             } else {
@@ -33,7 +35,8 @@ function showLibrary(myLibrary) {
             }
             tableRow.appendChild(tableData);
         }
-
+        
+        tableRow.setAttribute("data-id", book.id);
         tableBody.appendChild(tableRow);
     }
 }
