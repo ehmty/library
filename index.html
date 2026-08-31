@@ -13,7 +13,7 @@
 
     <dialog id="my-dialog">
 
-        <form method="dialog">
+        <form method="dialog" id="book-form">
             <label for="title">Title</label>
             <input type="text" id="title" name="title">
 
@@ -30,9 +30,9 @@
                 <input type="radio" id="not-read" name="status" value="false" checked>
                 <label for="not-read">not read</label>
             </fieldset>
-            <input type="submit" name="submit">
         </form>
-
+        
+        <input type="submit" form="book-form" name="submit" value="Add Book">
         <button commandfor="my-dialog" command="close">Close</button>
 
     </dialog>
