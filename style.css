@@ -20,11 +20,13 @@ body {
     flex-direction: column;
 }
 
-button:hover {
+button:hover,
+input[type="submit"]:hover {
     opacity: 80%;
 }
 
-button:active {
+button:active,
+input[type="submit"]:active {
     opacity: 50%;
 }
 
@@ -43,7 +45,6 @@ button:active {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-top: 14px;
 }
 
 .status-btn.read {
@@ -87,6 +88,45 @@ tbody td {
     padding: 10px;
 }
 
+dialog {
+    margin: auto auto;
+    background-color: rgb(96, 104, 131);
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
 form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+form input {
     color: black;
+}
+
+form input:focus {
+    outline: none;
+    border: 2px solid orange;
+}
+
+input[type="submit"],
+dialog button {
+    background-color: orange;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+input {
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+fieldset {
+    border-radius: 5px;
+    padding: 10px;
 }
