@@ -68,11 +68,8 @@ tableBody.addEventListener("click", e => {
     }
     
     if (e.target.classList.contains("status-btn")) {
-        for (let book of myLibrary) {
-            if (book.id === id) {
-                book.toggleStatus();
-            }
-        }
+        const book = myLibrary.find(book => book.id === id);
+        book.toggleStatus();
     }
 
     showLibrary(myLibrary);
