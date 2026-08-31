@@ -24,29 +24,29 @@ function showLibrary(myLibrary) {
     for (let book of myLibrary) {
         const tableRow = document.createElement("tr");
         
-        for (let prop in book) {
-            const tableData = document.createElement("td");
-            if (prop === "id" || prop === "toggleStatus") continue;
+        const title = document.createElement("td");
+        title.textContent = book.title;
 
-            if (prop === "status") {
-                const statusBtn = document.createElement("button");
-                statusBtn.classList.add("status-btn")
-                statusBtn.classList.add(book.status ? "read" : "not-read");
-                statusBtn.textContent = book.status ? "read" : "not read";
-                tableData.appendChild(statusBtn);
-            } else {
-                tableData.textContent = book[prop];
-            }
-            tableRow.appendChild(tableData);
-        }
+        const author = document.createElement("td");
+        author.textContent = book.author;
 
+        const pages = document.createElement("td");
+        pages.textContent = book.pages;
+
+        const status = document.createElement("td");
+        const statusBtn = document.createElement("button");
+        statusBtn.classList.add("status-btn");
+        statusBtn.classList.add(book.status ? "read" : "not-read");
+        statusBtn.textContent = book.status ? "read" : "not read";
+        status.appendChild(statusBtn);
+
+        const remove = document.createElement("td");
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("remove-btn");
         removeBtn.textContent = "x";
+        remove.appendChild(removeBtn);
 
-        const tableData = document.createElement("td");
-        tableData.appendChild(removeBtn);
-        tableRow.appendChild(tableData);
+        tableRow.append(title, author, pages, status, remove);
 
         tableRow.setAttribute("data-id", book.id);
         
