@@ -41,12 +41,15 @@ function showLibrary(myLibrary) {
         }
 
         const removeBtn = document.createElement("button");
-        removeBtn.classList.add("remove-btn")
-        removeBtn.textContent = "x"
+        removeBtn.classList.add("remove-btn");
+        removeBtn.textContent = "x";
+
+        const tableData = document.createElement("td");
+        tableData.appendChild(removeBtn);
+        tableRow.appendChild(tableData);
 
         tableRow.setAttribute("data-id", book.id);
-
-        tableRow.appendChild(removeBtn);
+        
         tableBody.appendChild(tableRow);
     }
 
