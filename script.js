@@ -14,9 +14,6 @@ function addBookToLibrary(title, author, pages, status) {
     return book;
 }
 
-const book1 = addBookToLibrary("The Hobbit", "J. R. R. Tolkien", 295, true)
-const book2 = addBookToLibrary("The Game of Thrones", "George R. R. Martin", 694, false)
-
 function showLibrary(myLibrary) {
     const tableBody = document.querySelector("tbody");
     tableBody.textContent = "";
