@@ -1,9 +1,15 @@
-function Book(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor (title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+        this.id = crypto.randomUUID();
+    }
+
+    toggleStatus() {
+        this.status = !this.status;
+    }
 }
 
 let myLibrary = [];
@@ -86,7 +92,3 @@ form.addEventListener("submit", e => {
 
     form.reset();
 })
-
-Book.prototype.toggleStatus = function() {
-    this.status = !this.status;
-}
